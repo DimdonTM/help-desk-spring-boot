@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${pageTitle}">Частые вопросы</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" th:href="@{/}">Help Desk</a>
+        <div class="navbar-nav">
+            <a class="nav-link" th:href="@{/}">Главная</a>
+            <a class="nav-link" th:href="@{/about}">О нас</a>
+            <a class="nav-link" th:href="@{/contacts}">Контакты</a>
+            <a class="nav-link active" th:href="@{/faq}">Частые вопросы</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <h1 class="fw-bold" th:text="${pageTitle}">Часто задаваемые вопросы</h1>
+
+        </div>
+    </div>
+
+    <section class="row g-4 mt-4">
+        <div class="col-md-4" th:each="question : ${questions}">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5" th:text="${question}">Функция</h2>
+                    <p class="card-text text-muted">
+                        Этот блок создан на основе данных, переданных из контроллера.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+</body>
+</html>
